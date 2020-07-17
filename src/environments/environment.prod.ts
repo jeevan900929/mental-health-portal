@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  googleAnalyticsID: 'UA-166009929-1'
 };

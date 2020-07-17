@@ -1,15 +1,6 @@
-/*
-Copyright 2020 Adobe
-All Rights Reserved.
-
-NOTICE: Adobe permits you to use, modify, and distribute this file in
-accordance with the terms of the Adobe license agreement accompanying
-it. If you have received this file from a source other than Adobe,
-then your use, modification, or distribution of it requires the prior
-written permission of Adobe.
-*/
 
 import { Injectable } from '@angular/core';
+import { ViewEventListenerService } from './view-event-listener.service';
 
 @Injectable({
     providedIn: 'root'
@@ -27,11 +18,11 @@ export class ViewSDKClient {
     });
     adobeDCView: any;
 
-    ready() {
+    ready(): Promise<any> {
         return this.readyPromise;
     }
 
-    previewFile(divId: string, viewerConfig: any) {
+    previewFile(divId: string, viewerConfig: any, eventService: ViewEventListenerService): void {
         const config: any = {
             /* Pass your registered client id */
             clientId: '8c0cd670273d451cbc9b351b11d22318',
@@ -42,6 +33,8 @@ export class ViewSDKClient {
         }
         /* Initialize the AdobeDC View object */
         this.adobeDCView = new window.AdobeDC.View(config);
+
+        this.registerEventsHandler(eventService);
 
         /* Invoke the file preview API on Adobe DC View object */
         const previewFilePromise = this.adobeDCView.previewFile({
@@ -73,7 +66,7 @@ export class ViewSDKClient {
         return previewFilePromise;
     }
 
-    previewFileUsingFilePromise(divId: string, filePromise: Promise<string | ArrayBuffer>, fileName: any) {
+    previewFileUsingFilePromise(divId: string, filePromise: Promise<string | ArrayBuffer>, fileName: any): void {
         /* Initialize the AdobeDC View object */
         this.adobeDCView = new window.AdobeDC.View({
             /* Pass your registered client id */
@@ -97,7 +90,7 @@ export class ViewSDKClient {
         }, {});
     }
 
-    registerSaveApiHandler() {
+    registerSaveApiHandler(): void {
         /* Define Save API Handler */
         const saveApiHandler = (metaData: any, content: any, options: any) => {
             console.log(metaData, content, options);
@@ -122,14 +115,14 @@ export class ViewSDKClient {
         );
     }
 
-    registerEventsHandler() {
+    registerEventsHandler(eventService: ViewEventListenerService): void {
         /* Register the callback to receive the events */
         this.adobeDCView.registerCallback(
             /* Type of call back */
             window.AdobeDC.View.Enum.CallbackType.EVENT_LISTENER,
             /* call back function */
             (event: any) => {
-                console.log(event);
+                eventService.eventProviderCallback(event);
             },
             /* options to control the callback execution */
             {
