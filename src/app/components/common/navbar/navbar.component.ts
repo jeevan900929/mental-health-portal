@@ -19,8 +19,11 @@ export class NavbarComponent implements OnInit {
     {
       label: 'Content',
       items: [
-        { label: 'Psychiatric Support', icon: 'pi pi-chevron-right', routerLink: ['/content'] },
-        { label: 'Mental Health Counselling', icon: 'pi pi-chevron-right', routerLink: ['/content'] }
+        { label: 'Psychiatric Support', icon: 'pi pi-chevron-right', routerLink: ['/content/psychiatric'] },
+        { label: 'Mental Health Counselling', icon: 'pi pi-chevron-right', routerLink: ['/content/counselling'] },
+        { label: 'Sport Activities', icon: 'pi pi-chevron-right', routerLink: ['/content/sports'] },
+        { label: 'Yoga for Wellbeing', icon: 'pi pi-chevron-right', routerLink: ['/content/yoga'] },
+        { label: 'Meditative Practices', icon: 'pi pi-chevron-right', routerLink: ['/content/meditation'] }
       ]
     }
   ];
