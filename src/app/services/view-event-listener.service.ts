@@ -8,19 +8,28 @@ export class ViewEventListenerService {
 
   private callbackDictionary: any = {};
 
-  constructor(private googleAnalyticsService: AnalyticsService) {
+  constructor(private googleAnalyticsService: AnalyticsService, private AnalyticsCategory: string) {
 
     this.addCallbackFor('DOCUMENT_OPEN',
-      (data) => this.googleAnalyticsService.sendAdobeViewSDKEvent('DOCUMENT_OPEN', data));
+      (data) => this.googleAnalyticsService.sendAdobeViewSDKEvent(AnalyticsCategory, 'DOCUMENTS OPENED', data));
 
     this.addCallbackFor('PAGE_VIEW',
-      (data) => this.googleAnalyticsService.sendAdobeViewSDKEvent('PAGE_VIEW', data));
+      (data) => this.googleAnalyticsService.sendAdobeViewSDKEvent(AnalyticsCategory, 'PAGES VIEWED', data));
 
     this.addCallbackFor('TEXT_COPY',
-      (data) => this.googleAnalyticsService.sendAdobeViewSDKEvent('TEXT_COPY', data));
+      (data) => this.googleAnalyticsService.sendAdobeViewSDKEvent(AnalyticsCategory, 'TEXT COPIED', data));
 
     this.addCallbackFor('DOCUMENT_DOWNLOAD',
-      (data) => this.googleAnalyticsService.sendAdobeViewSDKEvent('DOCUMENT_DOWNLOAD', data));
+      (data) => this.googleAnalyticsService.sendAdobeViewSDKEvent(AnalyticsCategory, 'DOCUMENTS DOWNLOADED', data));
+
+    this.addCallbackFor('HYPERLINK_OPEN',
+      (data) => this.googleAnalyticsService.sendAdobeViewSDKEvent(AnalyticsCategory, 'HYPERLINKS OPENED', data));
+
+    this.addCallbackFor('TEXT_SEARCH',
+      (data) => this.googleAnalyticsService.sendAdobeViewSDKEvent(AnalyticsCategory, 'TEXT SEARCHED', data));
+
+    this.addCallbackFor('BOOKMARK_ITEM_CLICK',
+      (data) => this.googleAnalyticsService.sendAdobeViewSDKEvent(AnalyticsCategory, 'BOOKMARKED ITEMS CLICKED', data));
 
   }
 

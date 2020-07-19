@@ -9,11 +9,11 @@ export class AnalyticsService {
 
   constructor() { }
 
-  sendAdobeViewSDKEvent(eventType: string, eventData: any): void {
+  sendAdobeViewSDKEvent(eventCategory: string, eventType: string, eventData: any): void {
     const tracker = ga.getAll()[0];
     if (tracker) {
       tracker.send('event', {
-        eventCategory: 'AdobeViewSDK',
+        eventCategory,
         eventAction: eventType,
         eventLabel: JSON.stringify(eventData),
       });

@@ -22,7 +22,7 @@ export class ViewSDKClient {
         return this.readyPromise;
     }
 
-    previewFile(divId: string, viewerConfig: any, eventService: ViewEventListenerService): void {
+    previewFile(divId: string, fileName: string, fileLocation: string, viewerConfig: any, eventService: ViewEventListenerService): void {
         const config: any = {
             /* Pass your registered client id */
             clientId: '8c0cd670273d451cbc9b351b11d22318',
@@ -42,24 +42,13 @@ export class ViewSDKClient {
             content: {
                 /* Location of file where it is hosted */
                 location: {
-                    url: 'https://documentcloud.adobe.com/view-sdk-demo/PDFs/Bodea Brochure.pdf',
-                    /*
-                    If the file URL requires some additional headers, then it can be passed as follows:-
-                    headers: [
-                        {
-                            key: '<HEADER_KEY>',
-                            value: '<HEADER_VALUE>',
-                        }
-                    ]
-                    */
+                    url: fileLocation
                 },
             },
             /* Pass meta data of file */
             metaData: {
                 /* file name */
-                fileName: 'Bodea Brochure.pdf',
-                /* file ID */
-                id: '6d07d124-ac85-43b3-a867-36930f502ac6',
+                fileName
             }
         }, viewerConfig);
 

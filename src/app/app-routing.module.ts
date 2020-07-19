@@ -1,37 +1,41 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { ContentComponent } from './components/content/content.component';
+import { PsychiatricComponent } from './components/content/psychiatric/psychiatric.component';
+import { CounsellingComponent } from './components/content/counselling/counselling.component';
+import { SportsComponent } from './components/content/sports/sports.component';
+import { YogaComponent } from './components/content/yoga/yoga.component';
+import { MeditationComponent } from './components/content/meditation/meditation.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'content', redirectTo: '/home', pathMatch: 'full' },
   {
-    path: 'content', component: ContentComponent,
+    path: 'content',
     children: [
       {
         path: 'psychiatric',
-        component: ContentComponent
+        component: PsychiatricComponent
       },
       {
         path: 'counselling',
-        component: ContentComponent
+        component: CounsellingComponent
       },
       {
         path: 'sports',
-        component: ContentComponent
+        component: SportsComponent
       },
       {
         path: 'yoga',
-        component: ContentComponent
+        component: YogaComponent
       },
       {
         path: 'meditation',
-        component: ContentComponent
+        component: MeditationComponent
       }
     ]
   },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  {path: '**', redirectTo: '/home'},
+  { path: '**', redirectTo: '/home' },
 ];
 
 @NgModule({
