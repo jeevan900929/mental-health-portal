@@ -19,7 +19,7 @@ export class YogaComponent implements AfterViewInit {
       const eventService = new ViewEventListenerService(this.googleAnalyticsService, 'Yoga for Wellbeing');
       /* Invoke file preview */
       this.viewSDKClient.previewFile('pdf-div-yoga', 'Yoga for Wellbeing.pdf',
-        '/assets/documents/bjsports-2019-101242.full.pdf', environment.viewerConfig, eventService);
+        '/assets/documents/yoga/yoga.pdf', environment.viewerConfig, eventService);
     });
   }
 

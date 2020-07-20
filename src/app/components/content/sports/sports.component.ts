@@ -19,7 +19,7 @@ export class SportsComponent implements AfterViewInit {
       const eventService = new ViewEventListenerService(this.googleAnalyticsService, 'Sport Activities');
       /* Invoke file preview */
       this.viewSDKClient.previewFile('pdf-div-sports', 'Sport Activities.pdf',
-        '/assets/documents/bjsports-2019-101242.full.pdf', environment.viewerConfig, eventService);
+        '/assets/documents/sports/sports.pdf', environment.viewerConfig, eventService);
     });
   }
 

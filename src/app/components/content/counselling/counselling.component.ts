@@ -19,7 +19,7 @@ export class CounsellingComponent implements AfterViewInit {
       const eventService = new ViewEventListenerService(this.googleAnalyticsService, 'Mental Health Counselling');
       /* Invoke file preview */
       this.viewSDKClient.previewFile('pdf-div-counselling', 'Mental Health Counselling.pdf',
-        '/assets/documents/bjsports-2019-101242.full.pdf', environment.viewerConfig, eventService);
+        '/assets/documents/counselling/counselling.pdf', environment.viewerConfig, eventService);
     });
   }
 

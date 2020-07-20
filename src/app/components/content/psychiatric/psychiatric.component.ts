@@ -19,7 +19,7 @@ export class PsychiatricComponent implements AfterViewInit {
       const eventService = new ViewEventListenerService(this.googleAnalyticsService, 'Psychiatric Support');
       /* Invoke file preview */
       this.viewSDKClient.previewFile('pdf-div-psychiatric', 'Psychiatric Support.pdf',
-        '/assets/documents/bjsports-2019-101242.full.pdf', environment.viewerConfig, eventService);
+        '/assets/documents/psychiatric/psychiatric.pdf', environment.viewerConfig, eventService);
     });
   }
 

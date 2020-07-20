@@ -19,7 +19,7 @@ export class MeditationComponent implements AfterViewInit {
       const eventService = new ViewEventListenerService(this.googleAnalyticsService, 'Meditative Practices');
       /* Invoke file preview */
       this.viewSDKClient.previewFile('pdf-div-meditation', 'Meditative Practices.pdf',
-        '/assets/documents/bjsports-2019-101242.full.pdf', environment.viewerConfig, eventService);
+        '/assets/documents/meditation/meditation.pdf', environment.viewerConfig, eventService);
     });
   }
 
