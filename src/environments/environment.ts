@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  googleAnalyticsID: 'UA-166009929-1',
+  googleAnalyticsID: 'UA-166009929-2',
 
   /* Control the viewer customization.
 * It lists down all supported variables with default values.
